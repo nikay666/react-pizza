@@ -1,9 +1,20 @@
 import React from 'react'
 import { removeSVG, plusSVG, minusSVG } from '../utilits'
+import Button from './Button'
 
-const CartItem = ({name, type, size}) => {
+const CartItem = ({id, name, type, size, totalPrice, totalCount, onRemove, onMinus, onPlus}) => {
+    const handleRemoveClick = () =>  {
+        onRemove(id)
+    }
+    const handleMinusItem = () => {
+        onMinus(id)
+    }
+
+    const handlePlusItem = () => {
+        onPlus(id)
+    }
+
     return (
-        
     <div className="cart__item">
         <div className="cart__item-img">
             <img
@@ -17,21 +28,31 @@ const CartItem = ({name, type, size}) => {
             <p>{type} тесто, {size} см.</p>
         </div>
         <div className="cart__item-count">
-            <div className="button button--outline button--circle cart__item-count-minus">
+            <div 
+                className="button button--outline button--circle cart__item-count-minus"
+                onClick={handleMinusItem}
+            >
                 {minusSVG}
             </div>
-            <b>2</b>
-            <div className="button button--outline button--circle cart__item-count-plus">
+            <b>{totalCount}</b>
+            <div 
+                className="button button--outline button--circle cart__item-count-plus"
+                onClick={handlePlusItem}
+            >
                 {plusSVG}
             </div>
         </div>
         <div className="cart__item-price">
-            <b>770 ₽</b>
+            <b>{totalPrice} ₽</b>
         </div>
         <div className="cart__item-remove">
-            <div className="button button--outline button--circle">
+            <Button 
+                outline
+                className="button--circle"
+                onClick={handleRemoveClick}
+            >
                {removeSVG}
-            </div>
+            </Button>
         </div>
     </div>
     )

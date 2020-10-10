@@ -1,4 +1,3 @@
-import { URL_BD } from "../../utilits";
 import axios from "axios";
 
 const { SET_PIZZAS, SET_LOADED, } = require("../actionNames");
