@@ -1,2 +1,2 @@
 # react-pizza
-React and redux app with shopping cart and filtering
+Training project for the course: react and redux app with cart and filtering
