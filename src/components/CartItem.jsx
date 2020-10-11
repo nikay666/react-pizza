@@ -2,7 +2,7 @@ import React from 'react'
 import { removeSVG, plusSVG, minusSVG } from '../utilits'
 import Button from './Button'
 
-const CartItem = ({id, name, type, size, totalPrice, totalCount, onRemove, onMinus, onPlus}) => {
+const CartItem = ({id, name, type, size, imageUrl, totalPrice, totalCount, onRemove, onMinus, onPlus}) => {
     const handleRemoveClick = () =>  {
         onRemove(id)
     }
@@ -19,7 +19,7 @@ const CartItem = ({id, name, type, size, totalPrice, totalCount, onRemove, onMin
         <div className="cart__item-img">
             <img
             className="pizza-block__image"
-            src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+            src={imageUrl}
             alt="Pizza"
             />
         </div>

@@ -14,7 +14,6 @@ const Home = () => {
   const isLoaded = useSelector(({pizzas}) => pizzas.isLoaded)
   const { category, sortBy } = useSelector(({filters}) => filters)
 
-
   useEffect(() => {
     dispatch(fetchPizzas(sortBy, category))
      // eslint-disable-next-line
