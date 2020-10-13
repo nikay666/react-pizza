@@ -10,7 +10,6 @@ export const categories = [
   'Закрытые'
 ]
 
-
 export const categoriesSort =  [
   {name:'популярности', type: 'popular', order: 'desc'}, 
   {name: 'цене', type: 'price', order: 'desc'},
