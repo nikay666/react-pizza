@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { clearCart, removeCartItem, plusCartItem, minusCartItem } from '../redux/actions/cart'
-import { CartItem, Button, EmptyCart } from '../components'
+import { CartItem, Button, EmptyCart, TotalCart } from '../components'
 import { cartIconSVG, clearSVG, arrowBackSVG } from '../utilits'
 import cartEmptyImage from  '../assets/img/empty-cart.png'
 import { Link } from 'react-router-dom'
@@ -76,21 +76,11 @@ export const Cart = () => {
               )
             }
           </div>
-          <div className="cart__bottom">
-            <div className="cart__bottom-details">
-              <span> Всего пицц: <b>{totalCount} шт.</b> </span>
-              <span> Сумма заказа: <b>{totalPrice} ₽</b> </span>
-            </div>
-            <div className="cart__bottom-buttons">
-              <Link to="/" className="button button--outline button--add go-back-btn">
-              {arrowBackSVG}
-                <span>Вернуться назад</span>
-              </Link>
-              <Button className="pay-btn" onClick={onClickOrder}>
-                <span>Оплатить сейчас</span>
-              </Button>
-            </div>
-          </div>
+          <TotalCart
+            totalCount={totalCount}
+            totalPrice={totalPrice}
+            onClick={onClickOrder}
+          />
         </div>
         : <EmptyCart/>
         }
